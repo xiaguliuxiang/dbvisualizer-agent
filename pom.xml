@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>site.xiaguliuxiang.crack.dbvisualizer</groupId>
+    <artifactId>dbvisualizer-agent</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>DbVisualizer Pro Agent</name>
+    <url>https://github.com/xiaguliuxiang/dbvisualizer-agent</url>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <commons-cli.version>1.4</commons-cli.version>
+        <jaxb-api-version>2.2.12</jaxb-api-version>
+        <javassist.version>3.21.0-GA</javassist.version>
+    </properties>
+
+    <dependencies>
+        <!--
+            The Apache Commons CLI library provides an API for parsing command line options passed to programs.
+            It's also able to print help messages detailing the options available for a command line tool.
+        -->
+        <dependency>
+            <groupId>commons-cli</groupId>
+            <artifactId>commons-cli</artifactId>
+            <version>${commons-cli.version}</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+        <!-- https://docs.oracle.com/javase/8/docs/api/javax/xml/bind/DatatypeConverter.html#parseBase64Binary-java.lang.String- -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb-api-version}</version>
+        </dependency>
+        <!--
+            Javassist (Java Programming Assistant) makes Java bytecode manipulation simple.
+            It is a class library for editing bytecodes in Java; it enables Java programs to
+                define a new class at runtime and to modify a class file when the JVM loads it.
+        -->
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>${javassist.version}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <!--
+                Apache Maven JAR Plugin
+                This plugin provides the capability to build jars.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <archive>
+                        <addMavenDescriptor>false</addMavenDescriptor>
+                    </archive>
+                    <excludes>xiaguliuxiang.keystore</excludes>
+                </configuration>
+            </plugin>
+            <!--
+                Apache Maven Assembly Plugin
+                The Assembly Plugin for Maven is primarily intended to allow users to aggregate the project output
+                along with its dependencies, modules, site documentation, and other files into a single distributable archive.
+            -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.1.1</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>false</addClasspath>
+                        </manifest>
+                        <manifestEntries>
+                            <Premain-Class>site.xiaguliuxiang.crack.dbvisualizer.agent.Agent</Premain-Class>
+                            <Main-Class>site.xiaguliuxiang.crack.dbvisualizer.Usage</Main-Class>
+                            <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                            <Built-By>xiaguliuxiang@gmail.com</Built-By>
+                            <Created-By>xiaguliuxiang@gmail.com</Created-By>
+                        </manifestEntries>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>make-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
