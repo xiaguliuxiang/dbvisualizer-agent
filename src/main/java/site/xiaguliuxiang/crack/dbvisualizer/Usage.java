@@ -41,11 +41,16 @@ public class Usage {
         HelpFormatter formatter = new HelpFormatter();
         formatter.printHelp("java -jar " + selfPath, OPTIONS, true);
 
-        System.out.println("\n================================================================================");
-        System.out.println("\n# Crack agent usage: append -javaagent arg to dbvis.vmoptions.");
-        System.out.println("# Example(-javaagent arg): \n");
-        System.out.println("  -javaagent:" + selfPath);
-        System.out.println("\n# Then start your DbVisualizer.\n");
+        System.out.println("\n================================================================================\n");
+        System.out.println("# Crack Agent usage: append -javaagent arg to dbvis.vmoptions.");
+        System.out.println("# Example(append -javaagent:dbvisualizer-agent.jar to dbvis.vmoptions file): \n");
+        System.out.println("  Windows: -javaagent:C:\\Users\\xiaguliuxiang\\dbvisualizer-agent.jar");
+        System.out.println("    dbvis.vmoptions: ${DbVisualizer_HOME}/dbvis.vmoptions");
+        System.out.println("  Mac OS: -javaagent:/Users/xiaguliuxiang/dbvisualizer-agent.jar");
+        System.out.println("    dbvis.vmoptions: ${DbVisualizer_HOME}/Contents/vmoptions.txt");
+        System.out.println("  Linux: -javaagent:/home/xiaguliuxiang/dbvisualizer-agent.jar");
+        System.out.println("    dbvis.vmoptions: ${DbVisualizer_HOME}/dbvis.vmoptions");
+        System.out.println("\n# Then start your DbVisualizer and install license key.\n");
 
         System.exit(1);
     }
