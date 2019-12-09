@@ -6,7 +6,7 @@
 
     <groupId>site.xiaguliuxiang.crack.dbvisualizer</groupId>
     <artifactId>dbvisualizer-agent</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.1-SNAPSHOT</version>
 
     <name>DbVisualizer Pro Agent</name>
     <url>https://github.com/xiaguliuxiang/dbvisualizer-agent</url>

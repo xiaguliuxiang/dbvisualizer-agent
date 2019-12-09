@@ -1,7 +1,7 @@
 # DbVisualizer Pro Agent
 
 #### Support (more version need your feedback):
-DbVisualizer 10.0.22
+DbVisualizer 10.0.25, 20191209 update
 
 ## 使用说明
 
@@ -24,7 +24,12 @@ DbVisualizer 10.0.22
 1. 将`dbvisualizer-agent.jar`放在一个你不会随便删除的位置。
 2. 设置环境变量`VM options`（这其实是Java的环境变量，用来指定其启动java程序时附带的参数），把`-javaagent`参数附带上。具体可以这么做：
    * 你可以把：`-javaagent:/path/dbvisualizer-agent.jar`这样的命令直接放到`dbvis.vmoptions`这样的文件内。
-   * 你还可以直接命令行执行：` sed -i '$a-javaagent:/path/dbvisualizer-agent.jar' ${DBVIS_HOME}/dbvis.vmoptions`来添加参数。
+   *   Windows: -javaagent:C:\Users\xiaguliuxiang\dbvisualizer-agent.jar
+          dbvis.vmoptions: ${DbVisualizer_HOME}/dbvis.vmoptions
+       Mac OS: -javaagent:/Users/xiaguliuxiang/dbvisualizer-agent.jar
+          dbvis.vmoptions: ${DbVisualizer_HOME}/Contents/vmoptions.txt
+       Linux: -javaagent:/home/xiaguliuxiang/dbvisualizer-agent.jar
+          dbvis.vmoptions: ${DbVisualizer_HOME}/dbvis.vmoptions
    * 或者你所知的其他修改环境变量的方法。
    * 总之你想办法把`-javaagent`参数附带到要启动的java进程上。
 3. 配置完成请重启你的`DbVisualizer`客户端。
