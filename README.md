@@ -1,7 +1,7 @@
 # DbVisualizer Pro Agent
 
 #### Support (more version need your feedback):
-DbVisualizer 10.0.25, 20191209 update
+DbVisualizer 10.0.26, 20200224 update
 
 ## 使用说明
 
@@ -44,7 +44,7 @@ DbVisualizer 10.0.25, 20191209 update
 * 请仔细看看每个参数的作用。
 * 提供了正确的参数运行KeyGen会在终端输出计算好的激活码。
 * 将生成的激活码复制出来去激活你的DbVisualizer。
-* 举个栗子：`java -jar dbvisualizer-agent.jar -n xiaguliuxiang -o https://github.com/xiaguliuxiang/dbvisualizer-agent`
+* 举个栗子：`java -jar dbvisualizer-agent.jar -i xiaguliuxiang -n xiaguliuxiang -o https://github.com/xiaguliuxiang/dbvisualizer-agent`
 
 ### 申明
 * 本项目只做个人学习研究之用，不得用于商业用途！

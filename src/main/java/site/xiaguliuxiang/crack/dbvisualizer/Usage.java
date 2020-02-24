@@ -9,6 +9,7 @@ import site.xiaguliuxiang.crack.dbvisualizer.keygen.KeyGen;
  */
 public class Usage {
     private static final Options OPTIONS = new Options();
+    private static final String DEFAULT_LICENSE_ID = "侠骨留香/Www.ChinaPYG.CoM";
     private static final String DEFAULT_LICENSE_NAME = "侠骨留香";
     private static final String DEFAULT_LICENSE_ORG = "ChinaPYG";
 
@@ -22,6 +23,7 @@ public class Usage {
         System.out.print(usage);
         System.out.flush();
 
+        OPTIONS.addOption("i", "id", true, "License id[default: 侠骨留香/Www.ChinaPYG.CoM]");
         OPTIONS.addOption("n", "name", true, "License name[default: 侠骨留香]");
         OPTIONS.addOption("o", "org", true, "License organization[default: ChinaPYG]");
         OPTIONS.addOption("h", "help", false, "Print help message");
@@ -61,11 +63,12 @@ public class Usage {
             return;
         }
 
+        String licenseId = commandLine.hasOption("i") ? commandLine.getOptionValue("i") : DEFAULT_LICENSE_ID;
         String licenseName = commandLine.hasOption("n") ? commandLine.getOptionValue("n") : DEFAULT_LICENSE_NAME;
         String licenseOrg = commandLine.hasOption("o") ? commandLine.getOptionValue("o") : DEFAULT_LICENSE_ORG;
 
         try {
-            String license = KeyGen.generateLicense(licenseName, licenseOrg);
+            String license = KeyGen.generateLicense(licenseId, licenseName, licenseOrg);
 
             System.out.println("Your license key(Don't copy this line!!!): \n");
             System.out.println(license);

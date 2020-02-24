@@ -29,19 +29,19 @@ public class KeyGen {
         }
     }
 
-    public static String generateLicense(String licenseName, String licenseOrg)
+    public static String generateLicense(String licenseId, String licenseName, String licenseOrg)
             throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
-        Map<String, String> map = prepareLicense(licenseName, licenseOrg);
+        Map<String, String> map = prepareLicense(licenseId, licenseName, licenseOrg);
         map.put("dbvis.license.seal", signLicense(map));
         return license2String(map);
     }
 
-    private static Map<String, String> prepareLicense(String licenseName, String licenseOrg) {
+    private static Map<String, String> prepareLicense(String licenseId, String licenseName, String licenseOrg) {
         SortedMap<String, String> map = new TreeMap<>();
         map.put("dbvis.license.product", "DbVisualizer");
         map.put("dbvis.license.edition", "Personal");
         map.put("dbvis.license.version", "2019.09.09");
-        map.put("dbvis.license.id", "侠骨留香 / Www.ChinaPYG.CoM");
+        map.put("dbvis.license.id", licenseId);
         map.put("dbvis.license.name", licenseName);
         map.put("dbvis.license.org", licenseOrg);
         map.put("dbvis.license.activation", "2019-09-09");
@@ -71,7 +71,7 @@ public class KeyGen {
     }
 
     public static void main(String[] args) throws NoSuchAlgorithmException, InvalidKeyException, SignatureException {
-        String license = generateLicense("侠骨留香", "ChinaPYG");
+        String license = generateLicense("侠骨留香/Www.ChinaPYG.CoM", "侠骨留香", "ChinaPYG");
         System.out.println(license);
     }
 }
