@@ -1,4 +1,4 @@
-package site.xiaguliuxiang.crack.dbvisualizer.util;
+package com.xiaguliuxiang.crack.dbvisualizer.util;
 
 import javax.xml.bind.DatatypeConverter;
 

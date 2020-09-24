@@ -1,7 +1,7 @@
 # DbVisualizer Pro Agent
 
 #### Support (more version need your feedback):
-DbVisualizer 10.0.26, 20200224 update
+DbVisualizer 11.0.5, 20200924 update
 
 ## 使用说明
 
@@ -13,12 +13,13 @@ DbVisualizer 10.0.26, 20200224 update
 * 直接下载本项目[release](https://github.com/xiaguliuxiang/dbvisualizer-agent/releases)包。
 
 ### 自行编译
-* Clone本项目源码，pom.xml同级目录执行`mvn package`后即可进行编译。
-* 使用`target`目录产出的`dbvisualizer-agent-1.0-SNAPSHOT-jar-with-dependencies.jar`，而非`dbvisualizer-agent-1.0-SNAPSHOT.jar`！
+* Clone本项目源码，pom.xml同级目录执行`mvn clean package`后即可进行编译。
+* 使用`target`目录产出的`dbvisualizer-agent-1.0.3-jar-with-dependencies.jar`，而非`dbvisualizer-agent-1.0.3.jar`！
 * *如果你不知道我在说什么，最好还是直接下载我编译好的包。*
 
 ### 使用帮助
 * 如果你已经获得`dbvisualizer-agent.jar`，可以试着执行`java -jar dbvisualizer-agent.jar -h`看看输出的帮助。
+* 默认的`License id`已经进入软件服务商的黑名单，建议使用自定义的`License id`，具体参考上一步的帮助输出。
 
 ### 配置Agent
 1. 将`dbvisualizer-agent.jar`放在一个你不会随便删除的位置。
@@ -41,7 +42,7 @@ DbVisualizer 10.0.26, 20200224 update
 ### 使用KeyGen
 * 你得确认已经配置好agent，参考上面说明。
 * 当你试着执行`java -jar dbvisualizer-agent.jar -h`时应该可以看到输出的KeyGen参数帮助。
-* 请仔细看看每个参数的作用。
+* 请仔细看看每个参数的作用，建议使用自定义的`License id`。
 * 提供了正确的参数运行KeyGen会在终端输出计算好的激活码。
 * 将生成的激活码复制出来去激活你的DbVisualizer。
 * 举个栗子：`java -jar dbvisualizer-agent.jar -i xiaguliuxiang -n xiaguliuxiang -o https://github.com/xiaguliuxiang/dbvisualizer-agent`
@@ -51,6 +52,7 @@ DbVisualizer 10.0.26, 20200224 update
 * 商业使用请向 [DbVisualizer](https://www.dbvis.com) 购买正版，谢谢合作！
 * 本项目使用`GNU General Public License v3.0`开源许可！
 * 不允许说我代码写的糟糕。
+* 此工具并不太适合我的应用场景早已卸载，这里也就懒得更新了，商业使用的记得支持正版哦！
 
 ### 交流
 * 给本项目发issue。

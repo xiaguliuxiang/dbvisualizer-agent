@@ -1,6 +1,6 @@
-package site.xiaguliuxiang.crack.dbvisualizer.keygen;
+package com.xiaguliuxiang.crack.dbvisualizer.keygen;
 
-import site.xiaguliuxiang.crack.dbvisualizer.util.Base64;
+import com.xiaguliuxiang.crack.dbvisualizer.util.Base64;
 
 import java.nio.charset.StandardCharsets;
 import java.security.*;
@@ -66,7 +66,7 @@ public class KeyGen {
 
     private static String license2String(Map<String, String> map) {
         StringBuilder licenseBuilder = new StringBuilder("# DbVisualizer Pro License - 侠骨留香/ChinaPYG 2019\n");
-        map.forEach((k, v) -> licenseBuilder.append(k + "=" + v).append("\n"));
+        map.forEach((k, v) -> licenseBuilder.append(k).append("=").append(v).append("\n"));
         return licenseBuilder.toString();
     }
 
@@ -74,4 +74,5 @@ public class KeyGen {
         String license = generateLicense("侠骨留香/Www.ChinaPYG.CoM", "侠骨留香", "ChinaPYG");
         System.out.println(license);
     }
+
 }

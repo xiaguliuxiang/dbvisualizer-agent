@@ -1,4 +1,4 @@
-package site.xiaguliuxiang.crack.dbvisualizer.agent;
+package com.xiaguliuxiang.crack.dbvisualizer.agent;
 
 import java.lang.instrument.Instrumentation;
 

@@ -1,7 +1,7 @@
-package site.xiaguliuxiang.crack.dbvisualizer;
+package com.xiaguliuxiang.crack.dbvisualizer;
 
+import com.xiaguliuxiang.crack.dbvisualizer.keygen.KeyGen;
 import org.apache.commons.cli.*;
-import site.xiaguliuxiang.crack.dbvisualizer.keygen.KeyGen;
 
 /**
  * @author xiaguliuxiang@gmail.com
@@ -79,4 +79,5 @@ public class Usage {
 
         System.out.flush();
     }
+
 }
