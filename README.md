@@ -1,7 +1,7 @@
 # DbVisualizer Pro Agent
 
 #### Support (more version need your feedback):
-DbVisualizer 11.0.5, 20200924 update
+DbVisualizer 12.0.4, 20200924 update
 
 ## 使用说明
 
