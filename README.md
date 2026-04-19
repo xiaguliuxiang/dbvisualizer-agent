@@ -1,7 +1,7 @@
-# DbVisualizer Pro Agent
+# DbVisualizer Agent
 
 #### Support (more version need your feedback):
-DbVisualizer 12.0.4, 20200924 update
+DbVisualizer 26.1.1, 20260419 update
 
 ## 使用说明
 
@@ -13,31 +13,35 @@ DbVisualizer 12.0.4, 20200924 update
 * 直接下载本项目[release](https://github.com/xiaguliuxiang/dbvisualizer-agent/releases)包。
 
 ### 自行编译
+* 注意项目JDK使用的是`JDK25`，因为`DbVisualizer`要求`Java 25`。
 * Clone本项目源码，pom.xml同级目录执行`mvn clean package`后即可进行编译。
-* 使用`target`目录产出的`dbvisualizer-agent-1.0.3-jar-with-dependencies.jar`，而非`dbvisualizer-agent-1.0.3.jar`！
+* 使用`target`目录产出的`dbvisualizer-agent-1.0.4-jar-with-dependencies.jar`，而非`dbvisualizer-agent-1.0.4.jar`！
 * *如果你不知道我在说什么，最好还是直接下载我编译好的包。*
 
 ### 使用帮助
 * 如果你已经获得`dbvisualizer-agent.jar`，可以试着执行`java -jar dbvisualizer-agent.jar -h`看看输出的帮助。
 * 默认的`License id`已经进入软件服务商的黑名单，建议使用自定义的`License id`，具体参考上一步的帮助输出。
+* 修改代码实现屏蔽黑名单，改这里：`com.xiaguliuxiang.agent.ClassHookTransformer#L39`，注意`DbVisualizer`每个版本可能都不一样。
 
 ### 配置Agent
 1. 将`dbvisualizer-agent.jar`放在一个你不会随便删除的位置。
 2. 设置环境变量`VM options`（这其实是Java的环境变量，用来指定其启动java程序时附带的参数），把`-javaagent`参数附带上。具体可以这么做：
-   * 你可以把：`-javaagent:/path/dbvisualizer-agent.jar`这样的命令直接放到`dbvis.vmoptions`这样的文件内。
-   *   Windows: -javaagent:C:\Users\xiaguliuxiang\dbvisualizer-agent.jar
-   *      dbvis.vmoptions: ${DbVisualizer_HOME}/dbvis.vmoptions
-   *   Mac OS: -javaagent:/Users/xiaguliuxiang/dbvisualizer-agent.jar
-   *      dbvis.vmoptions: ${DbVisualizer_HOME}/Contents/vmoptions.txt
-   *   Linux: -javaagent:/home/xiaguliuxiang/dbvisualizer-agent.jar
-   *      dbvis.vmoptions: ${DbVisualizer_HOME}/dbvis.vmoptions
-   * 或者你所知的其他修改环境变量的方法。
-   * 总之你想办法把`-javaagent`参数附带到要启动的java进程上。
+    * 你可以把：`-javaagent:/path/dbvisualizer-agent.jar`这样的命令直接放到`dbvis.vmoptions`这样的文件内。
+    * Windows: -javaagent:C:\Users\xiaguliuxiang\dbvisualizer-agent.jar
+    *      dbvis.vmoptions: ${DbVisualizer_HOME}/dbvis.vmoptions
+    * Mac OS: -javaagent:/Users/xiaguliuxiang/dbvisualizer-agent.jar
+    *      dbvis.vmoptions: ${DbVisualizer_HOME}/Contents/vmoptions.txt
+    * Linux: -javaagent:/home/xiaguliuxiang/dbvisualizer-agent.jar
+    *      dbvis.vmoptions: ${DbVisualizer_HOME}/dbvis.vmoptions
+    * 或者你所知的其他修改环境变量的方法。
+    * 总之你想办法把`-javaagent`参数附带到要启动的java进程上。
 3. 配置完成请重启你的`DbVisualizer`客户端。
 4. 如果你想验证是否配置成功，可以这么做：
-   * 执行类似命令：`ps aux|grep java` 找到对应的进程看看`-javaagent`参数是否正确附上。
-   * 在`Linux`用户目录类似：`${HOME}/.dbvis/logs`软件运行日志内应该能找到：`-javaagent:/path/dbvisualizer-agent.jar`的输出字样。
-   * 在`Windows`用户目录类似：`%USERPROFILE%/.dbvis/logs`软件运行日志内应该能找到：`-javaagent:/path/dbvisualizer-agent.jar`的输出字样。
+    * 执行类似命令：`ps aux|grep java` 找到对应的进程看看`-javaagent`参数是否正确附上。
+    * 在`Linux`用户目录类似：`${HOME}/.dbvis/logs`软件运行日志内应该能找到：`-javaagent:/path/dbvisualizer-agent.jar`
+      的输出字样。
+    * 在`Windows`用户目录类似：`%USERPROFILE%/.dbvis/logs`软件运行日志内应该能找到：
+      `-javaagent:/path/dbvisualizer-agent.jar`的输出字样。
 
 ### 使用KeyGen
 * 你得确认已经配置好agent，参考上面说明。
@@ -45,7 +49,8 @@ DbVisualizer 12.0.4, 20200924 update
 * 请仔细看看每个参数的作用，建议使用自定义的`License id`。
 * 提供了正确的参数运行KeyGen会在终端输出计算好的激活码。
 * 将生成的激活码复制出来去激活你的DbVisualizer。
-* 举个栗子：`java -jar dbvisualizer-agent.jar -i xiaguliuxiang -n xiaguliuxiang -o https://github.com/xiaguliuxiang/dbvisualizer-agent`
+* 举个栗子：
+  `java -jar dbvisualizer-agent.jar -i xiaguliuxiang -n xiaguliuxiang -o https://github.com/xiaguliuxiang/dbvisualizer-agent`
 
 ### 申明
 * 本项目只做个人学习研究之用，不得用于商业用途！
@@ -57,11 +62,13 @@ DbVisualizer 12.0.4, 20200924 update
 ### 交流
 * 给本项目发issue。
 * 欢迎你来一起完善这个项目，请发PR。
-* 你可以加入QQ群：`532944625` 和我实时交流。
-* 访问网站：[https://github.com/xiaguliuxiang/dbvisualizer-agent](https://github.com/xiaguliuxiang/dbvisualizer-agent) 给我留言。
+* 访问网站：[https://github.com/xiaguliuxiang/dbvisualizer-agent](https://github.com/xiaguliuxiang/dbvisualizer-agent)
+  给我留言。
 
 ### 热心网友教程（感谢原作者，侵删！）
 * [Google](https://www.google.com)
+* [DbVisualizer System Requirements](https://www.dbvis.com/download/#toggleRequirements)
+* [How do I change the Java version that DbVisualizer uses?](https://support.dbvis.com/support/solutions/articles/1000231944)
 
 ### 关于
 * [侠骨留香](https://github.com/xiaguliuxiang)
